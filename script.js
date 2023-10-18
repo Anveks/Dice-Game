@@ -14,3 +14,13 @@ const toggleAnimation = () => {
   cube.classList.toggle("animation-left");
   cube.classList.toggle("animation-right");
 }
+
+document.querySelector(".btn-settings").addEventListener('click', () => {
+  document.querySelector(".cont-modal").classList.toggle('hidden');
+  document.querySelector(".overlay").classList.toggle('hidden');
+});
+
+document.querySelector('.btn-close').addEventListener('click', () => {
+  document.querySelector(".cont-modal").classList.toggle('hidden');
+  document.querySelector(".overlay").classList.toggle('hidden');
+})
