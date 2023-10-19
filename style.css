@@ -3,6 +3,8 @@
   padding: 0;
   box-sizing: inherit;
   font-family: 'DotGothic16', sans-serif;
+  /* font-family: 'Pixelify Sans', sans-serif; */
+  font-size: 120%;
 }
 
 html {
@@ -14,10 +16,69 @@ body {
   color: #333;
 }
 
+.title {
+  text-align: center;
+}
+
 .game-board{
-  background-color: white;
   width: 60rem;
   height: 40rem;
+  margin: 5% auto;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+
+.player-1 {
+  border-radius: 1rem 0 0 1rem;
+}
+
+.player-2 {
+  border-radius: 0 1rem 1rem 0;
+}
+
+.player-1, .player-2 {
+  background-color: white;
+  opacity: 0.5;
+  text-align: center;
+  padding-top: 10%;
+  font-size: 200%;
+  display: grid;
+  z-index: 0;
+}
+
+.current-score {
+  background-color: rgba(180, 124, 40, 0.7); /* Adjust the opacity to your preference */
+  z-index: 1;
+  width: 50%;
+  height: fit-content;
+  border-radius: 1rem;
+  margin: 0 auto;
+  font-size: 70%;
+}
+
+/* .not-active {
+  opacity: 0.7;
+} */
+
+.control-panel {
+  /* background-color: cadetblue; */
+  z-index: 1;
+  gap: 1.5rem;
+  display: grid;
+  position: absolute;
+  right: 40%;
+  bottom: 9%;
+}
+
+.roll-btn, .hold-btn, .restart-btn, .settings-btn {
+  padding: .5rem 1rem;
+  border: transparent;
+  border-radius: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-align: center;
 }
 
 .cube {
@@ -30,7 +91,9 @@ body {
   -webkit-box-shadow: 1px 1px 5px 5px rgba(0,0,0,0.37);
   -moz-box-shadow: 1px 1px 5px 5px rgba(0,0,0,0.37);
   margin: 1rem;
+  margin-bottom: 3rem;
   background-color: snow;
+  position: relative;
 }
 
 .animation-left {
@@ -41,17 +104,6 @@ body {
 .animation-right {
   transition: transform 0.1s ease; 
   transform: rotate(-3deg);
-}
-
-button {
-  padding: .5rem 1rem;
-  font-weight: bold;
-  margin: 1rem;
-  border: transparent;
-  border-radius: 1.5rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #333;
 }
 
 .hidden {
@@ -95,4 +147,14 @@ button {
   backdrop-filter: blur(3px);
   z-index: 5;
 }
--
+
+.dice-dot {
+  background-color: #333;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 40%;
+  right: 38%;
+}
+

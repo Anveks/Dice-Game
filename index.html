@@ -4,21 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dice Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Work+Sans:wght@300;400;500;600&display=swap');
-    </style>
 </head>
 <body>
+
+  <h2 class="title">Dice Game</h2>
+
   <div class="game-board">
-    <div class="player-1">player 1</div>
-    <div class="player-2">player 2</div>
+
+    <div class="player-1">
+      <p class="name">PLAYER 1</p>
+      <p class="dice-score">0</p>
+      <div class="current-score">
+        Current Score: <p class="score">0</p>
+      </div>
+    </div>
+
+    <div class="control-panel">
+      <button class="restart-btn">🔁 RESTART</button>
+      <button class="settings-btn">⚙️SETTINGS</button>
+      <div class="cube">
+        <div class="dice-dot"></div>
+      </div>
+      <button class="roll-btn">🎲 ROLL DICE</button>
+      <button class="hold-btn">⏱️ HOLD</button>
+    </div>
+
+    <div class="player-2">
+      <p class="name">PLAYER 2</p>
+      <p class="dice-score">0</p>
+      <div class="current-score">
+        Current Score: <p class="score">0</p>
+      </div>
+    </div>
+
   </div>
-
-  <!-- <div class="cube"></div>
-
-  <button class="btn">Click</button>
-  <button class="btn-settings">Settings</button>
 
   <div class="cont-modal hidden">
     <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est, delectus.</h3>
@@ -26,7 +49,8 @@
     <button class="btn-close">❌</button>
   </div>
 
-  <div class="overlay hidden"></div> -->
+  <div class="overlay hidden"></div> 
+  
 </body>
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </html>
