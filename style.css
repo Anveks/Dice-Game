@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  font-family: 'DotGothic16', sans-serif;
 }
 
 html {
@@ -11,7 +12,12 @@ html {
 
 body {
   color: #333;
-  font-family: sans-serif;
+}
+
+.game-board{
+  background-color: white;
+  width: 60rem;
+  height: 40rem;
 }
 
 .cube {
@@ -89,4 +95,4 @@ button {
   backdrop-filter: blur(3px);
   z-index: 5;
 }
-
+-
