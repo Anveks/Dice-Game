@@ -1,0 +1,19 @@
+  holdButton.addEventListener('click', () => {
+    holdScore
+  });
+
+  if (randomDice > 1) {
+    dots = DOT_MATRIX[randomDice];
+    if (activePlayer === 'player-1') {
+      p1_score += randomDice;
+      player1.querySelector(".dice-score").innerHTML = p1_score;
+    } else {
+      p2_score += randomDice;
+      player2.querySelector(".dice-score").innerHTML = p2_score;
+    }
+  } else {
+    dots = DOT_MATRIX[randomDice];
+    activePlayer = 'player-2';
+    document.querySelector('.player-1').classList.toggle('active');
+    document.querySelector('.player-2').classList.toggle('active');
+  }
