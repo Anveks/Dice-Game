@@ -72,9 +72,9 @@ body {
   bottom: 9%;
 }
 
-button:hover {
+/* button:hover {
   transform: scale(1.01);
-}
+} */
 
 .roll-btn, .hold-btn, .restart-btn, .settings-btn {
   padding: .5rem 1rem;
@@ -114,24 +114,27 @@ button:hover {
   display: none;
 }
 
-.cont-modal {
+.cont-modal, .game-over {
   background-color: snow;
-  width: 50%;
+  width: auto;
   margin: 0 auto;
-  height: 20%;
+  height: auto;
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.37);
   -webkit-box-shadow: 1px 1px 5px 5px rgba(0,0,0,0.37);
   -moz-box-shadow: 1px 1px 5px 5px rgba(0,0,0,0.37);
   text-align: justify;
-  position: relative;
   z-index: 10;
+  position: absolute;
+  top: 25%;
+  left: 25%;
 }
 
 .btn-close {
   position: absolute;
-  right: 2%;
+  border: none;
+  right: 5%;
   top: 0;
   width: 0.5rem;
   height: 0.5rem;

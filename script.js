@@ -1,6 +1,7 @@
 'use strict';
 
 const cube = document.querySelector(".cube");
+const overlay = document.querySelector('.overlay');
 
 const p1 = document.querySelector(".player-1");
 const p2 = document.querySelector(".player-2");
@@ -9,6 +10,7 @@ const roll_button = document.querySelector('.roll-btn');
 const settings_button = document.querySelector('.settings-btn');
 const restart_button = document.querySelector('.restart-btn');
 const hold_button = document.querySelector('.hold-btn');
+const close_button = document.querySelectorAll('.btn-close');
 
 let gameOver = false;
 let endGameMessage;
@@ -76,8 +78,6 @@ const rollDice = () => {
 };
 
 hold_button.addEventListener('click', () => {
-  console.log('the current player is: ' + activePlayer);
-
   const activePlayerElement = document.querySelector(`.player-${activePlayer}`);
 
   // Update the current player's score
@@ -88,9 +88,13 @@ hold_button.addEventListener('click', () => {
   playerCurrentElement.innerHTML = 0;
   current_score = 0;
 
-  if (playerScoreElement.innerHTML >= 100) {
-    gameOver = true;
-    endGameMessage = `Congratulations! Player #${activePlayer} has won! 🎉`;
+  if (playerScoreElement.innerHTML >= 10) {
+    const gameOverCont = document.querySelector(".cont-modal");
+    gameOverCont.classList.toggle("hidden");
+    overlay.classList.toggle("hidden");
+    gameOverCont.firstElementChild.innerHTML = `Congratulations! Player #${activePlayer} has won! 🎉`;
+
+    resetGame();
   }
 
   // Toggle the "active" class to indicate the change
@@ -102,5 +106,19 @@ hold_button.addEventListener('click', () => {
     ? activePlayer = 2 
     : activePlayer = 1;
 });
+
+const resetGame = () => {
+  activePlayer = 1;
+  p1.querySelector(".dice-score").innerHTML = 0;
+  p2.querySelector(".dice-score").innerHTML = 0;
+}
+
+// close modal button
+close_button.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.target.parentElement.classList.toggle("hidden");
+    overlay.classList.toggle("hidden");
+  });
+})
 
 
