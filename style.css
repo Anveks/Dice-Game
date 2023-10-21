@@ -72,6 +72,10 @@ body {
   bottom: 9%;
 }
 
+button:hover {
+  transform: scale(1.01);
+}
+
 .roll-btn, .hold-btn, .restart-btn, .settings-btn {
   padding: .5rem 1rem;
   border: transparent;
