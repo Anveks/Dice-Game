@@ -63,7 +63,7 @@ const rollDice = () => {
     document.querySelector(`.player-${activePlayer}`).querySelector('.score').innerHTML = current_score;
     
   } else {
-    // Toggle the "active" class for both players
+    // toggle the "active" class for both players
     p1.classList.toggle("active");
     p2.classList.toggle("active");
 
@@ -80,7 +80,7 @@ const rollDice = () => {
 hold_button.addEventListener('click', () => {
   const activePlayerElement = document.querySelector(`.player-${activePlayer}`);
 
-  // Update the current player's score
+  // update the current player's score
   const playerScoreElement = activePlayerElement.querySelector('.dice-score');
   const playerCurrentElement = activePlayerElement.querySelector('.score');
 
@@ -88,13 +88,12 @@ hold_button.addEventListener('click', () => {
   playerCurrentElement.innerHTML = 0;
   current_score = 0;
 
-  if (playerScoreElement.innerHTML >= 10) {
+  if (playerScoreElement.innerHTML >= 100) {
+    gameOver = true;
     const gameOverCont = document.querySelector(".cont-modal");
     gameOverCont.classList.toggle("hidden");
     overlay.classList.toggle("hidden");
     gameOverCont.firstElementChild.innerHTML = `Congratulations! Player #${activePlayer} has won! 🎉`;
-
-    resetGame();
   }
 
   // Toggle the "active" class to indicate the change
@@ -107,15 +106,24 @@ hold_button.addEventListener('click', () => {
     : activePlayer = 1;
 });
 
-const resetGame = () => {
+function resetGame() {
   activePlayer = 1;
+  current_score = 0;
+
+  p1.classList.add("active");
+  p2.classList.remove("active");
+
   p1.querySelector(".dice-score").innerHTML = 0;
   p2.querySelector(".dice-score").innerHTML = 0;
+
+  p1.querySelector(".score").innerHTML = 0;
+  p2.querySelector(".score").innerHTML = 0;
 }
 
 // close modal button
 close_button.forEach((btn) => {
   btn.addEventListener("click", (e) => {
+    gameOver && resetGame();
     e.target.parentElement.classList.toggle("hidden");
     overlay.classList.toggle("hidden");
   });
